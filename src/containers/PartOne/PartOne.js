@@ -5,9 +5,9 @@ class PartOne extends Component {
   render() {
     return (
       <section className="wrapper main flex-vertical-align">
-          <div className="wrapper__status is-new--true kerning">
-            New
-          </div>
+        <div className="wrapper__status is-new--true kerning">
+          New
+        </div>
 
         <h1 className="wrapper__header">
           Good Hair Days Start with Safer Ingredients
@@ -21,7 +21,7 @@ class PartOne extends Component {
           <img className="hero-image" src="/images/hero.jpg" />
         </div>
 
-        <ul className="wrapper__nav nav kerning">
+        <ul className="nav wrapper__nav kerning">
           <li>Volume & Shape</li>
           <li>Smooth & Control</li>
           <li>Repair & Nourish</li>

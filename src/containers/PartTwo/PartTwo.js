@@ -1,19 +1,57 @@
 import React, { Component } from 'react';
+// import PeopleList from './PeopleList.js';
 
-class App extends Component {
+class PartTwo extends Component {
+  constructor () {
+    super();
+
+    this.state = { items: [],
+                   filter: ''
+                 };
+                 
+    this.onFilterChange = this.onFilterChange.bind(this);
+  }
+
+  /*
+   * Initial API call before render.
+   */
+  componentWillMount () {
+    const host = 'https://swapi.co/api/people'
+    const conf = {
+      method: 'GET',
+      headers: new Headers(),
+      mode: 'cors',
+      cache: 'default'
+    };
+
+    fetch(host, conf)
+      .then( response => response.json() )
+      .then( ({results: items}) => this.setState({items}));
+  }
+
+  onFilterChange (e) {
+    const filter = e.target.value.toLowerCase();
+    this.setState({filter: filter});
+  }
+
   render() {
+    console.log(this.state)
+    let characters = this.state.items;
+    if(this.state.filter){
+      characters = characters.filter( character => character.name.toLowerCase().includes(this.state.filter) )
+    }
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <section className="wrapper">
+        <input type='text' onChange={this.onFilterChange}></input>
+        { characters.map( character =>
+          <div key={character.name}>
+            {character.name}
+          </div>) }
+
+      </section>
     );
   }
 }
 
-export default App;
+export default PartTwo;
