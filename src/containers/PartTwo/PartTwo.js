@@ -60,8 +60,6 @@ class PartTwo extends Component {
 
           <DataView character={focusedCharacter}></DataView>
       </section>
-
-
     );
   }
 }
@@ -71,7 +69,7 @@ class PartTwo extends Component {
  */
 const DataView = (props) => {
   if(!props.character){ return(<span>Loading...</span>) }
-  const features = ['name', 'height', 'mass', 'hair_color', 'skin_color', 'eye_color', 'birth_year', 'gender'];
+  const features = ['height', 'mass', 'hair_color', 'skin_color', 'eye_color', 'birth_year', 'gender'];
 
   return(
     <div>
