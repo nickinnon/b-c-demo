@@ -5,7 +5,7 @@ class PartOne extends Component {
   render() {
     return (
       <section className="wrapper main flex-vertical-align">
-          <div className="wrapper__status is-new--true">
+          <div className="wrapper__status is-new--true kerning">
             New
           </div>
 
@@ -17,9 +17,11 @@ class PartOne extends Component {
           Formulated without fulfates, mineral oil, or synthedic fragances, our next-generation hair care delivers high performance and safety.
         </span>
 
-        <img className="hero-image" src="/images/hero.jpg" />
+        <div>
+          <img className="hero-image" src="/images/hero.jpg" />
+        </div>
 
-        <ul className="wrapper__nav nav">
+        <ul className="wrapper__nav nav kerning">
           <li>Volume & Shape</li>
           <li>Smooth & Control</li>
           <li>Repair & Nourish</li>
