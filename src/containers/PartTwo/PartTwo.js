@@ -8,8 +8,9 @@ class PartTwo extends Component {
     this.state = { items: [],
                    filter: ''
                  };
-                 
+
     this.onFilterChange = this.onFilterChange.bind(this);
+    this.handleFocusChange = this.handleFocusChange.bind(this);
   }
 
   /*
@@ -34,6 +35,10 @@ class PartTwo extends Component {
     this.setState({filter: filter});
   }
 
+  handleFocusChange (e) {
+    this.setState({focus: e})
+  }
+
   render() {
     console.log(this.state)
     let characters = this.state.items;
@@ -44,8 +49,10 @@ class PartTwo extends Component {
     return (
       <section className="wrapper">
         <input type='text' onChange={this.onFilterChange}></input>
-        { characters.map( character =>
-          <div key={character.name}>
+        { characters.map( (character, index) =>
+          <div
+            key={character.name}
+            onClick={ () => this.handleFocusChange(index)}>
             {character.name}
           </div>) }
 
