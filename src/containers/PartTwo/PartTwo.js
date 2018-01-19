@@ -6,7 +6,8 @@ class PartTwo extends Component {
     super();
 
     this.state = { items: [],
-                   filter: ''
+                   filter: '',
+                   focus: 0 //Default to 0
                  };
 
     this.onFilterChange = this.onFilterChange.bind(this);
@@ -40,25 +41,49 @@ class PartTwo extends Component {
   }
 
   render() {
-    console.log(this.state)
     let characters = this.state.items;
+    let focusedCharacter = characters[this.state.focus];
+
     if(this.state.filter){
       characters = characters.filter( character => character.name.toLowerCase().includes(this.state.filter) )
     }
 
     return (
       <section className="wrapper">
-        <input type='text' onChange={this.onFilterChange}></input>
+        <input type='text' placeholder='search' onChange={this.onFilterChange}></input>
         { characters.map( (character, index) =>
-          <div
+          <h4
             key={character.name}
             onClick={ () => this.handleFocusChange(index)}>
             {character.name}
-          </div>) }
+          </h4>) }
 
+          <DataView character={focusedCharacter}></DataView>
       </section>
+
+
     );
   }
+}
+
+/*
+ * Quick and dirty helper component TODO refactor later
+ */
+const DataView = (props) => {
+  if(!props.character){ return(<span>Loading...</span>) }
+  const features = ['name', 'height', 'mass', 'hair_color', 'skin_color', 'eye_color', 'birth_year', 'gender'];
+
+  return(
+    <div>
+      <h2>{props.character.name}</h2>
+      {features.map( feature =>
+        <div key={feature}>
+          <span><strong>{feature}: </strong></span>
+          <span>{props.character[feature]}</span>
+        </div>
+      )}
+    </div>
+  )
 }
 
 export default PartTwo;
