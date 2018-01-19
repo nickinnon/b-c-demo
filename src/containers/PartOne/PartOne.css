@@ -1,4 +1,22 @@
+@font-face {
+  font-family: headerFont;
+  src: url('/fonts/heading-font.otf');
+}
+
+@font-face {
+  font-family: bodyFont;
+  src: url('/fonts/heading-font.otf');
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: headerFont;
+}
+* {
+  font-family: bodyFont;
+  /* outline: 1px solid red; */
+}
 :root{
+  /* Variables */
   --break-point-mobile: 400px;
 
   --text-color-main: rgba(0, 0, 0, 1);
@@ -8,9 +26,7 @@
   --theme-color-secondary: rgba(213, 221, 236, 1);
 }
 
-* {
-  /* outline: 1px solid red; */
-}
+
 
 .main {
   padding-top: 3rem;
@@ -35,13 +51,17 @@
   justify-content: center;
 }
 
-.is-new--true{
+.wrapper__status{
+  display: none;
   top: 1rem;
   position: absolute;
-  display: inline-block;
   padding: .5em 1em .5em 1em;
   color: var(--text-color-secondary);
   background-color: var(--theme-color-main);
+}
+
+.is-new--true{
+  display: inline-block;
 }
 
 .nav {
