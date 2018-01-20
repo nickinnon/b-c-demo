@@ -8,22 +8,22 @@
   src: url('/fonts/body-font.otf');
 }
 
-*{
-  font-family: bodyFont;
-  font-size: .8rem;
-  /* outline: 1px solid red; */
-}
-
-h1, h2, h3, h4, h5, h6 {
+.main h1,
+.main h2,
+.main h3,
+.main h4,
+.main h5,
+.main h6 {
+  margin-top: 1rem;
   font-size: 2rem;
   font-family: headerFont;
 }
 
-section {
-  width: 100vw;
-}
-
 :root {
+  width: 100vw;
+  font-family: bodyFont;
+  font-size: .8rem;
+  overflow-x: hidden;
   /* Variables */
   --text-color-main: rgba(0, 0, 0, 1);
   --text-color-secondary: rgba(255, 255, 255, 1);
@@ -37,7 +37,8 @@ section {
 }
 
 .main {
-  padding-top: 3rem;
+  position: relative;
+  margin-top: 2rem;
 }
 
 .flex-vertical-align {
@@ -62,8 +63,7 @@ section {
 
 .wrapper__status {
   display: none;
-  top: 1rem;
-  position: absolute;
+  align-items: top;
   padding: .5em 1em .5em 1em;
   color: var(--text-color-secondary);
   background-color: var(--theme-color-main);
@@ -88,13 +88,13 @@ section {
 }
 
 .nav li {
-  padding-left: 2em;
+  margin-left: 2em;
   display: inline-block;
   cursor: pointer;
 }
 
 .nav li:first-child {
-  padding-left: 1em;
+  margin-left: 1em;
 }
 
 .hero-image {

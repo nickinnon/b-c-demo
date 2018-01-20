@@ -16,6 +16,7 @@ class PartTwo extends Component {
 
   /*
    * Initial API call before render.
+   * This can also go in the constructor.
    */
   componentWillMount () {
     const host = 'https://swapi.co/api/people'
@@ -49,7 +50,7 @@ class PartTwo extends Component {
     }
 
     return (
-      <section className="wrapper">
+      <section>
         <input type='text' placeholder='search' onChange={this.onFilterChange}></input>
         { characters.map( (character, index) =>
           <h4
